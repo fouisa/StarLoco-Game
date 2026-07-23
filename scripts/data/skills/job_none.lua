@@ -36,6 +36,37 @@ SKILLS[157] = function(p, _)
     p:sendZaapiList(list)
 end
 
+-- Buy house
+SKILLS[97] = function(p, cellID)
+    local h = p:houseAt(cellID)
+    if h == nil then return end
+    p:setInHouse(h)
+    h:buyIt(p)
+end
+
+-- Enter house
+SKILLS[84] = function(p, cellID)
+    local h = p:houseAt(cellID)
+    if h == nil then return end
+    h:enter(p)
+end
+
+-- Sell house / change sale price
+SKILLS[98] = function(p, cellID)
+    local h = p:houseAt(cellID)
+    if h == nil then return end
+    p:setInHouse(h)
+    h:sellIt(p)
+end
+SKILLS[108] = SKILLS[98]
+
+-- Lock house
+SKILLS[81] = function(p, cellID)
+    local h = p:houseAt(cellID)
+    if h == nil then return end
+    h:lock(p)
+end
+
 -- Heal
 SKILLS[62] = function (p, _)  p:setLifePercent(100) end
 

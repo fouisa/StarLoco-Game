@@ -25,6 +25,7 @@ import org.starloco.locos.script.DataScriptVM;
 import org.starloco.locos.script.ScriptVM;
 import org.starloco.locos.script.types.MetaTables;
 import org.starloco.locos.util.Pair;
+import org.starloco.locos.entity.map.House;
 
 import java.util.Collections;
 import java.util.List;
@@ -92,7 +93,8 @@ public class SPlayer extends DefaultUserdata<Player> {
     private static void openZaap(Player p) {
         p.openZaapMenu();
     }
-    private static void sendZaapiList(Player p, String list) {
+    private static void sendZaapiList(Player p, ArgumentIterator args) {
+    String list = args.nextString().toString();
     SocketManager.GAME_SEND_ZAAPI_PACKET(p, list);
 }
 
@@ -101,7 +103,18 @@ public class SPlayer extends DefaultUserdata<Player> {
         int cellID = args.nextInt();
         p.openTrunk(cellID);
     }
+@SuppressWarnings("unused")
+private static SHouse houseAt(Player p, ArgumentIterator args) {
+    int cellId = args.nextInt();
+    House h = World.world.getHouseManager().getHouseIdByCoord(p.getCurMap().getId(), cellId);
+    return h == null ? null : h.scripted();
+}
 
+@SuppressWarnings("unused")
+private static void setInHouse(Player p, ArgumentIterator args) {
+    SHouse h = args.nextUserdata("SHouse", SHouse.class);
+    p.setInHouse(h.getUserValue());
+}
     @SuppressWarnings("unused")
     private static boolean setExchangeAction(Player p, ArgumentIterator args) {
         if(p.getExchangeAction() != null) return false;
