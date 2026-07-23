@@ -38,6 +38,7 @@ end
 
 -- Buy house
 SKILLS[97] = function(p, cellID)
+    JLogF("BUY HOUSE cellID={}", cellID)
     local h = p:houseAt(cellID)
     if h == nil then return end
     p:setInHouse(h)
