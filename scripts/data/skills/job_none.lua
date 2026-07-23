@@ -27,6 +27,7 @@ end
 local ZAAPI_BONTA = "4272;20|4217;20|4240;20|2214;20|4232;20|4300;20|8731;20|4074;20|4180;20|4250;20|4181;20|4106;20"
 
 SKILLS[157] = function(p, _)
+    p:setExchangeAction(19)
     local list = ZAAPI_BONTA
     p:sendZaapiList(list)
 end
