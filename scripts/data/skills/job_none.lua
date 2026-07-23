@@ -23,8 +23,13 @@ SKILLS[44] = function(p, _)
     local md = p:map():def()
     p:savePosition(md.id, md.zaapCell)
 end
--- Use Zaapi (secondary Zaap)
-SKILLS[157] = function(p, _) p:openZaap() end
+-- Use Zaapi (secondary teleport network - workshops)
+local ZAAPI_BONTA = "4272;20|4217;20|4240;20|2214;20|4232;20|4300;20|8731;20|4074;20|4180;20|4250;20|4181;20|4106;20"
+
+SKILLS[157] = function(p, _)
+    local list = ZAAPI_BONTA
+    p:sendZaapiList(list)
+end
 
 -- Heal
 SKILLS[62] = function (p, _)  p:setLifePercent(100) end

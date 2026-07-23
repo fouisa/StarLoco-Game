@@ -92,6 +92,9 @@ public class SPlayer extends DefaultUserdata<Player> {
     private static void openZaap(Player p) {
         p.openZaapMenu();
     }
+    private static void sendZaapiList(Player p, String list) {
+    SocketManager.GAME_SEND_ZAAPI_PACKET(p, list);
+}
 
     @SuppressWarnings("unused")
     private static void openTrunk(Player p, ArgumentIterator args) {
