@@ -23,6 +23,8 @@ SKILLS[44] = function(p, _)
     local md = p:map():def()
     p:savePosition(md.id, md.zaapCell)
 end
+-- Use Zaapi (secondary Zaap)
+SKILLS[157] = function(p, _) p:openZaap() end
 
 -- Heal
 SKILLS[62] = function (p, _)  p:setLifePercent(100) end
