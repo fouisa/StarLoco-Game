@@ -87,6 +87,7 @@ SKILLS[114] = function(p, _)        p:openZaap() end
 
 -- Use garbage bin
 SKILLS[153] = function(p, cellID)   p:openTrunk(cellID) end
+SKILLS[104] = function(p, cellID)   p:openTrunk(cellID) end
 
 -- Use Switch
 SKILLS[179] = function(p, cellId)
